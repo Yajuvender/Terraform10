@@ -1,0 +1,154 @@
+
+GIT
+*******************************************************************************************
+
+WebPage: https://www.notion.so/zarkom/Introduction-to-Git-ac396a0697704709a12b6a0e545db049
+YoutTube: https://www.youtube.com/watch?v=USjZcfj8yxE
+
+1. Setup instructions (post installation)
+git --version
+
+1.1 Configuring Your Name & Email (this is only to know who made changes to the GIT Code because its a distributed version control
+and many people will be working simultaneously.. so this is needed to understand who is checking in the changes in git
+
+	git config --global user.name "Yajuvender"
+	git config --global user.email "yajuvender99@email.com"
+
+2. Repositories
+	Local repository 
+	Remote repository 
+
+# 3. Initializing a repository
+	git init
+
+4. Staging and committing code
+	4.1. Checking the status
+		git status
+
+4.2. Staging files (staging area is like a temp box where we keep things before comitting... so add the files to staging area)
+	git add file.js
+	git add file.js file2.js file3.js (to add multiple files)
+	git add .  (add all the files inside the project folder to the staging area)
+
+4.3. Making commits
+	git commit -m "Commit message" (To commit the files from the staging area)
+
+4.4. Commit history (this log will show the author who made the commit.. basically the name or email which we entered in step 1)
+	git log
+	git checkout <commit-hash> (Replace `<commit-hash>` with the actual hash for the specific commit that you want to visit, which is listed with the `git log` command.)
+
+	git checkout master (To go back to the latest commit )
+
+5. Branches (branch is like timeline from main master , we make changes in branch and then merge them back in main master)
+
+	git branch - this will show the list of branches... by default we we will be in master..
+	note: if we are in some branch and we want to go back to master branch.. then just say "git branch master"
+
+	5.1. Creating a new branch
+		git branch <new-branch-name>
+Note: once we create the new branch then all the source code, git history, etc.. is copied to the new branch. you can check the same by using "git log" after moving to new branch.
+
+now if we say "git branch", it will show the list of branches.. and if we want to get into newly creaded branch then say "git checkout newbranch". 
+now say "git branch", it will show the list of branches and the green star will be next to newbranch.. which means that new branch is active.
+and if we say "git status" it will show the message as "On branch newbranch" instead of showing "On branch master"
+
+5.2. Changing branches
+	git checkout <branch-name>
+
+5.3. Merging branches
+	git merge <branch-name> (to merge the changes from a different branch into your current branch,)
+	You would replace <branch-name> with the branch that you want to integrate into your current branch.
+
+once our new branch is ready to be merged. then checkout the master branch by doing "git checkout master" then run
+"git merge newbranch" - this will merge the newbranch into master branch.. and now you can see all the checkin of newbranch in master branch when we run "git log"
+
+
+## 5.4. Deleting a branch
+	git branch -d <branch-name>
+
+********************************************************************************************************************
+
+GITHUB
+------------
+
+WebPage: https://www.notion.so/zarkom/Introduction-to-GitHub-202af6f64bbd4299b15f238dcd09d2a7
+YoutTube: https://www.youtube.com/watch?v=nhNq2kIvi9s
+
+
+3. Using GitHub
+- **Step 1: Create a new local Git repository**
+using GIT commands 
+mkdir hello-world
+cd hello-world
+git init
+
+- **Step 2: Adding a new file to our Git repository**
+
+add console.log("Hello World!"); in hello.js file
+
+- **Step 3: Making our initial commit to the local repository**
+git add .
+git commit -m "Initial commit"
+
+Make sure to use the git status command frequently when working with Git. It's a great way to check the status of your project files and the whole repository.
+
+3.1. Creating a new GitHub repository
+
+3.2. Pushing our code to the GitHub repository
+git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+					   https://github.com/Yajuvender/Terraform10.git
+git push -u origin master
+
+3.3. Making changes to the GitHub repository
+For example, open the hello.js file with your favorite code editor and change the code to this:
+console.log("Greetings, World!");
+
+git add .
+git commit -m "Change greeting"
+
+git push origin master
+
+## 3.4. Cloning an existing GitHub repository**
+git clone <github-repo-link>
+
+
+4. Branching and merging
+
+4.1. Pushing a branch to GitHub
+git checkout -b new-feature
+
+Then, you can create a new sample file called example.js, and add the following code:
+console.log("New greeting!");
+
+git add .
+git commit -m "Add new greeting"
+
+git push origin new-feature
+
+4.2. Creating a Pull Request (PR)
+We create a pull request to notify the project owner (or the team leader) that we want to implement some changes from our custom branch to the main master branch.
+
+## 4.3. Pull changes from GitHub
+
+git remote -v
+git pull origin master
+git push -u origin master
+
+# 5. Forking projects on GitHub
+## 5.1. Forking a repository (top right side icon)
+
+5.2. Working with a forked repository on your local machine
+git clone https://github.com/<your-username>/Spoon-Knife.git
+
+5.3. Proposing changes to the original project
+
+creating pull requests to the original project repository
+After pushing the changes that you made to your fork, you can create a New pull request: 
+
+
+
+Official Documentation
+----------------------
+
+GitHub Docs = https://docs.github.com/en/get-started
+GitHub Actions = https://docs.github.com/en/actions
