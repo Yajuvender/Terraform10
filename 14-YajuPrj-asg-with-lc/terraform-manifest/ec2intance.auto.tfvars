@@ -1,5 +1,5 @@
 
-instance_type = "t2.micro"
+instance_type = "t3.micro"
 
 keyname = "yaju-terraform-key"
 
